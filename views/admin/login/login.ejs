@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<head>
+    <title>DangNhap</title>
+    <link rel="stylesheet" href="../../../css/fontawesome-free-5.10.2-web/css/all.min.css">
+    <link rel="stylesheet" href="../../../css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="../../../css/style_login.css">
+</head>
+
+<body>
+    <header>
+        <div class="table_left">
+            <div class="sign_in_table">
+                <a class="btn_sign_in btn_lecturers" href="http://localhost:3000/">STUDENT</a>
+                <label class="input_goods" class="text_log_in" class="bottom_input_goods" data-aos="fade-right" data-aos-anchor="#example-anchor"
+                data-aos-offset="500" data-aos-duration="1000">Tên Web</label>
+                <div class="bottom_input_goods" data-aos="fade-left" data-aos-anchor="#example-anchor"
+                    data-aos-offset="500" data-aos-duration="1000"></div>
+                <ul>
+                    <li>Exactly</li>
+                    <li>Trust</li>
+                    <li>Utilities</li>
+                </ul>
+                <label class="sologun_input">Quản lý thông tin giảng viên</label>
+            </div>
+        </div>
+        <label class="text_log_in" class="bottom_input_goods" data-aos="fade-left" data-aos-anchor="#example-anchor"
+        data-aos-offset="500" data-aos-duration="1000">ADMIN LOGIN</label>
+        <div class="bottom_text_log_in" data-aos="fade-right" data-aos-anchor="#example-anchor" data-aos-offset="500"
+            data-aos-duration="1000"></div>
+        <div class="table_right">
+            <form action="http://localhost:3000/adminLogin"  method="POST">
+                <input type="text" name="username" placeholder="UserName" onfocus="this.placeholder=''" onblur="this.placeholder='UserName'">
+                <input type="password" name="password" placeholder="PassWord" onfocus="this.placeholder=''" onblur="this.placeholder='PassWord'">
+                <input class="btn_log_in" type="submit" id="login" value="Log in">
+            </form>
+        </div>
+        <div class="fontawesome_contact">
+            <ul>
+                <li><a href="https://www.facebook.com/profile.php?id=100026527598703"><i
+                            class="fab fa-facebook-square"></i></a></li>
+                <li><a href="https://www.instagram.com/suon.ran/"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="https://www.youtube.com/watch?v=j8U06veqxdU"><i class="fab fa-youtube"></i></a></i></li>
+            </ul>
+        </div>
+    </header>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
