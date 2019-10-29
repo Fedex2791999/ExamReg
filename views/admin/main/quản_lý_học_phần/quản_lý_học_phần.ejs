@@ -66,19 +66,19 @@
         <ul class="nav flex-column">
           <li class="nav-item">
             <a class="nav-link active" href="http://localhost:3000/main/quan_ly_hoc_phan" style="color: black; margin-left: 10px;">
-              <span data-feather="home"></span>
+              <i class="fas fa-book"></i>              
               Quản lý học phần <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="http://localhost:3000/main/quan_ly_sinh_vien">
-              <span data-feather="file"></span>
+              <i class="fas fa-user-graduate"></i>              
               Quản lý sinh viên
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="http://localhost:3000/main/quan_ly_ki_thi">
-              <span data-feather="shopping-cart"></span>
+              <i class="fas fa-file-alt"></i>              
               Quản lý kì thi
             </a>
           </li>
@@ -115,10 +115,10 @@
           <tbody>
               <% for(var i = 0; i < todo.length; i++) {%>
               <tr>
-                <td id="mã_môn_học"><%=todo[i].Mã_môn_học%></td>
-                <td id="tên_môn_học"><%=todo[i].Tên_môn_học%></td>
-                <td id="giảng_viên"><%=todo[i].Giảng_viên%></td>
-                <td id="ghi_chú"><%=todo[i].Ghi_chú%></td>
+                <td id="mã_môn_học"><%=todo[i].id_subject%></td>
+                <td id="tên_môn_học"><%=todo[i].name_subject%></td>
+                <td id="giảng_viên"><%=todo[i].lecturers_subject%></td>
+                <td id="ghi_chú"><%=todo[i].note%></td>
                 <td>
                   <button class="btn_list btnupdate" id="update" data-toggle="modal" data-target="#myModal-update" >Sửa</button>
                   <button class="btn_list btndelete" id="delete" >Xóa</button>
@@ -217,14 +217,14 @@
   
                 <!-- Modal body -->
                 <div class="modal-body body_excel">
-                    <form  id="form_excel" method="POST" action="http://localhost:3000/main/quan_ly_hoc_phan/upload" enctype="multipart/form-data">
+                    <form  id="form_excel" method="POST" action="/main/quan_ly_hoc_phan/upload" enctype="multipart/form-data">
                       <input type="file" name="file_name" id="file_name">
                 </div>
   
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" id="excel_submit">Xác nhận</button>
-                    <!-- <input type="submit" value="Xác nhận" class="btn btn-primary" id="sub-update"> -->
+                    <!-- <button type="button" class="btn btn-success" id="excel_submit">Xác nhận</button> -->
+                    <input type="submit" value="Xác nhận" class="btn btn-primary" id="excel_submit">
                 </form>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
                 </div>

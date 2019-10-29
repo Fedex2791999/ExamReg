@@ -1,4 +1,7 @@
 var mongoose = require('mongoose');
+var multer = require('multer');
+var xlsx = require('mongo-xlsx');
+
 
 mongoose.connect('mongodb://localhost/examReg_DB');
 
@@ -21,7 +24,7 @@ module.exports.Add_One = function(req,res){
     var năm_sinh = req.body.năm_sinh;
     var lớp = req.body.lớp;
     students.find({
-        Mã_sinh_viên : mã_sinh_viên
+        id_student : mã_sinh_viên
     },function(err,data){
         if(err) throw err;
         else if(data.length > 0){
@@ -29,11 +32,11 @@ module.exports.Add_One = function(req,res){
         }
         else{
             model.collection('students').insertOne({
-                Mã_sinh_viên : mã_sinh_viên,
-                Họ_và_tên : họ_và_tên,
-                Năm_sinh : năm_sinh,
-                Mật_khẩu : mã_sinh_viên,
-                Lớp : lớp
+                id_student : mã_sinh_viên,
+                name_student : họ_và_tên,
+                birth_student : năm_sinh,
+                password_student : mã_sinh_viên,
+                class : lớp
             });
             res.redirect('/main/quan_ly_sinh_vien');
         }
@@ -43,7 +46,7 @@ module.exports.Add_One = function(req,res){
 
 module.exports.Delete = function(req,res){  
     students.findOne({
-        Mã_sinh_viên : req.params.id
+        id_student : req.params.id
     }).remove(function(err,data){
         if(err) throw err;
         else res.json(data);
@@ -56,12 +59,12 @@ module.exports.Update = function(req,res){
     var năm_sinh_update = req.params.birth;
     var lớp_update = req.params.class;
     
-    var filter = {Mã_sinh_viên : mã_sinh_viên};
+    var filter = {id_student : mã_sinh_viên};
     var update = {
-        Mã_sinh_viên : mã_sinh_viên,
-        Họ_và_tên : tên_update,
-        Năm_sinh : năm_sinh_update,
-        Lớp : lớp_update
+        id_student : mã_sinh_viên,
+        name_student : tên_update,
+        birth_student : năm_sinh_update,
+        class : lớp_update
     }
     console.log('den day chưa?');
     model.collection('students').update(filter,update,function(err,data){
@@ -69,4 +72,30 @@ module.exports.Update = function(req,res){
         res.json(data);
         console.log(tên_update);
     })
+}
+
+var storage = multer.diskStorage({
+    destination : function(req,file,cb){
+        cb(null,'./upload/students');
+    },
+    filename : function(req,file,cb){
+        cb(null,file.originalname)
+    }
+})
+
+module.exports.upload = multer({storage : storage});
+
+
+module.exports.Upload = function(req,res){
+    var name = req.params.name;
+    
+    xlsx.xlsx2MongoData("./upload/students/"+name, null, function(err, mongoData) {
+        for(var i=0;i<mongoData.length;i++){
+            model.collection('students').insertOne(mongoData[i],function(err,data){
+                if(err) throw err;
+                else console.log('done!  Time:' + Date.now());
+            })
+        }
+
+      });
 }

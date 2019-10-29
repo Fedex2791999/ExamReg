@@ -1,4 +1,7 @@
 var mongoose = require('mongoose');
+var multer = require('multer');
+var xlsx = require('mongo-xlsx');
+
 
 mongoose.connect('mongodb://localhost/examReg_DB');
 
@@ -21,7 +24,7 @@ module.exports.Add_One = function(req,res){
     var giảng_viên = req.body.giảng_viên;
     var ghi_chú = req.body.ghi_chú;
     subjects.find({
-        Mã_môn_học : mã_môn_học
+        id_subject : mã_môn_học
     },function(err,data){
         if(err) throw err;
         else if(data.length > 0){
@@ -29,10 +32,10 @@ module.exports.Add_One = function(req,res){
         }
         else{
             model.collection('subjects').insertOne({
-                Mã_môn_học : mã_môn_học,
-                Tên_môn_học : tên_môn_học,
-                Giảng_viên : giảng_viên,
-                Ghi_chú : ghi_chú
+                id_subject : mã_môn_học,
+                name_subject : tên_môn_học,
+                lecturers_subject : giảng_viên,
+                note : ghi_chú
             });
             res.redirect('/main/quan_ly_hoc_phan');
         }
@@ -42,7 +45,7 @@ module.exports.Add_One = function(req,res){
 
 module.exports.Delete = function(req,res){  
     subjects.findOne({
-        Mã_môn_học : req.params.id
+        id_subject : req.params.id
     }).remove(function(err,data){
         if(err) throw err;
         else res.json(data);
@@ -55,12 +58,12 @@ module.exports.Update = function(req,res){
     var giảng_viên_update = req.params.teach;
     var ghi_chú_update = req.params.note;
     
-    var filter = {Mã_môn_học : mã_môn_học};
+    var filter = {id_subject : mã_môn_học};
     var update = {
-        Mã_môn_học : mã_môn_học,
-        Tên_môn_học : tên_update,
-        Giảng_viên : giảng_viên_update,
-        Ghi_chú : ghi_chú_update
+        id_subject : mã_môn_học,
+        name_subject : tên_update,
+        lecturers_subject : giảng_viên_update,
+        note : ghi_chú_update
     }
     model.collection('subjects').update(filter,update,function(err,data){
         if(err) throw err;
@@ -69,5 +72,27 @@ module.exports.Update = function(req,res){
     })
 }
 
+var storage = multer.diskStorage({
+    destination : function(req,file,cb){
+        cb(null,'./upload/subjects');
+    },
+    filename : function(req,file,cb){
+        cb(null,file.originalname)
+    }
+})
+
+module.exports.upload = multer({storage : storage});
+
+
 module.exports.Upload = function(req,res){
+    var name = req.params.name;
+    
+    xlsx.xlsx2MongoData("./upload/subjects/"+name, null, function(err, mongoData) {
+        for(var i=0;i<mongoData.length;i++){
+            model.collection('subjects').insertOne(mongoData[i],function(err,data){
+                if(err) throw err;
+                else console.log('done!  Time:' + Date.now());
+            })
+        }
+      });
 }

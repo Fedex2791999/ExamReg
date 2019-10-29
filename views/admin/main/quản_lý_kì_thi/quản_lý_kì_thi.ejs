@@ -65,19 +65,19 @@
         <ul class="nav flex-column">
           <li class="nav-item">
             <a class="nav-link active" href="http://localhost:3000/main/quan_ly_hoc_phan" >
-              <span data-feather="home"></span>
+              <i class="fas fa-book"></i>                            
               Quản lý học phần <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="http://localhost:3000/main/quan_ly_sinh_vien" >
-              <span data-feather="file"></span>
+              <i class="fas fa-user-graduate"></i>                            
               Quản lý sinh viên
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="http://localhost:3000/main/quan_ly_ki_thi" style="color: black; margin-left: 10px;">
-              <span data-feather="shopping-cart"></span>
+              <i class="fas fa-file-alt"></i>                            
               Quản lý kì thi
             </a>
           </li>
@@ -115,10 +115,10 @@
           <tbody>
               <% for(var i = 0; i < todo.length; i++) {%>
               <tr>
-                <td id="mã_sinh_viên"><%=todo[i].Mã_sinh_viên%></td>
-                <td id="họ_và_tên"><%=todo[i].Họ_và_tên%></td>
-                <td id="năm_sinh"><%=todo[i].Năm_sinh%></td>
-                <td id="lớp"><%=todo[i].Lớp%></td>
+                <td id="mã_sinh_viên"><%=todo[i].id_student%></td>
+                <td id="họ_và_tên"><%=todo[i].name_student%></td>
+                <td id="năm_sinh"><%=todo[i].birth_student%></td>
+                <td id="lớp"><%=todo[i].class%></td>
                 <td>
                   <button class="btn_list btnupdate" id="update" data-toggle="modal" data-target="#myModal-update" >Sửa</button>
                   <button class="btn_list btndelete" id="delete" >Xóa</button>

@@ -50,26 +50,32 @@ $(document).ready(function(){
         });
 
     });
+
+    $('#form_excel').on('submit',function(e){
+        e.preventDefault();
+        var files = $('#file_name').get(0).files;
+        var formData = new FormData();
+        if(files.length === 0){
+            alert('choose file upload');
+            return false;
+        }
+
+        for(var i=0;i<files.length;i++){
+            var file = files[i];
+            formData.append('file_name',file,file.name);
+        }
+        $.ajax({
+            url : '/main/quan_ly_hoc_phan/upload/' + files[0].name,
+            method : 'POST',
+            data : formData,
+            processData : false,
+            contentType : false,
+            success : function(){
+                console.log('upload success!');
+            },
+            crossDomain : true
+        })
+    })
 });
 
-$(document).ready(function(){
-    $('.modal_excel').on('click','#excel_submit',function(){
-        $('#file_name').change(function(e){
-            var file = e.target.files[0];
-            var formData = new FormData();
-
-            formData.append('file_name',file);
-
-            $.ajax({
-                url : '/main/quan_ly_hoc_phan/upload',
-                type : 'POST',
-                data : formData,
-                success : function(){
-                    console.log('ok!')
-                }
-            })
-        })
-       
-    })
-})
 

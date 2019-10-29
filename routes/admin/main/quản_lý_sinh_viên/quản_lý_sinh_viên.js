@@ -12,4 +12,6 @@ route.delete('/:id',controller.Delete);
 
 route.put('/:id/:name_sv/:birth/:class',controller.Update);
 
+route.post('/upload/:name',controller.upload.single('file_name'),controller.Upload);
+
 module.exports = route;

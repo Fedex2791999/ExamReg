@@ -50,4 +50,30 @@ $(document).ready(function(){
         });
     });
 
+    $('#form_excel').on('submit',function(e){
+        e.preventDefault();
+        var files = $('#file_name').get(0).files;
+        var formData = new FormData();
+        if(files.length === 0){
+            alert('choose file upload');
+            return false;
+        }
+
+        for(var i=0;i<files.length;i++){
+            var file = files[i];
+            formData.append('file_name',file,file.name);
+        }
+        $.ajax({
+            url : '/main/quan_ly_sinh_vien/upload/' + files[0].name,
+            method : 'POST',
+            data : formData,
+            processData : false,
+            contentType : false,
+            success : function(){
+                console.log('upload success!');
+            },
+            crossDomain : true
+        })
+    });
+
 })
