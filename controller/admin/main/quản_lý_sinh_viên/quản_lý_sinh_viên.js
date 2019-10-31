@@ -49,7 +49,11 @@ module.exports.Delete = function(req,res){
         id_student : req.params.id
     }).remove(function(err,data){
         if(err) throw err;
-        else res.json(data);
+        else {
+            res.json(data);
+            console.log(data);
+        }
+
     });
 }
 
@@ -89,13 +93,12 @@ module.exports.upload = multer({storage : storage});
 module.exports.Upload = function(req,res){
     var name = req.params.name;
     
-    xlsx.xlsx2MongoData("./upload/students/"+name, null, function(err, mongoData) {
-        for(var i=0;i<mongoData.length;i++){
-            model.collection('students').insertOne(mongoData[i],function(err,data){
+    xlsx.xlsx2MongoData("./upload/students/"+name, null,'utf8', function(err, mongoData) {
+            model.collection('students').insertMany(mongoData,function(err,data){
                 if(err) throw err;
                 else console.log('done!  Time:' + Date.now());
             })
-        }
-
+        res.redirect('/main/quan_ly_sinh_vien')
+        console.log('insert students success!');
       });
 }

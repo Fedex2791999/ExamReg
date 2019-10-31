@@ -71,6 +71,7 @@ $(document).ready(function(){
             contentType : false,
             success : function(){
                 console.log('upload success!');
+                location.reload();
             },
             crossDomain : true
         })

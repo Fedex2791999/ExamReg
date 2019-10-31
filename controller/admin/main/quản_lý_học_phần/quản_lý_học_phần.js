@@ -48,7 +48,10 @@ module.exports.Delete = function(req,res){
         id_subject : req.params.id
     }).remove(function(err,data){
         if(err) throw err;
-        else res.json(data);
+        else{ 
+            res.json(data)
+            console.log(data);
+        }
     });
 }
 
@@ -88,11 +91,11 @@ module.exports.Upload = function(req,res){
     var name = req.params.name;
     
     xlsx.xlsx2MongoData("./upload/subjects/"+name, null, function(err, mongoData) {
-        for(var i=0;i<mongoData.length;i++){
-            model.collection('subjects').insertOne(mongoData[i],function(err,data){
+            model.collection('subjects').insertMany(mongoData,function(err,data){
                 if(err) throw err;
                 else console.log('done!  Time:' + Date.now());
             })
-        }
+        res.redirect('/main/quan_ly_hoc_phan');
+        console.log('insert subjects success!');
       });
 }
