@@ -115,3 +115,13 @@
     width: 500px;
     height: 300px;
 }
+table{
+    font-family: sans-serif;
+}
+.sinh_vien_text{
+    text-decoration: none;
+    font-weight: 500;
+}
+.sinh_vien_text:hover{
+    text-decoration: none;
+}
