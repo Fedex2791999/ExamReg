@@ -7,7 +7,7 @@ mongoose.connect('mongodb://localhost/examReg_DB');
 
 var model = mongoose.connection;
 
-var banned_students = require('../../../../model/student/bannde_model');
+var banned_students = require('../../../../model/student/banned_model');
 
 module.exports.Open = function(req,res){
     banned_students.find({},function(err,data){
@@ -54,13 +54,16 @@ module.exports.Delete = function(req,res){
 }
 
 module.exports.Update = function(req,res){
+    console.log('heloo!!')
     var mã_sinh_viên  = req.params.id;
-    var tên_môn_học = req.params.tên_môn_học;
+    var tên_môn_học = req.params.name;
     
     var filter = {id_student : mã_sinh_viên};
     var update = {
+        id_student : mã_sinh_viên,
         name_subject : tên_môn_học
     }
+    console.log('den day chua?');
     model.collection('banned_students').update(filter,update,function(err,data){
         if(err) throw err;
         res.json(data);

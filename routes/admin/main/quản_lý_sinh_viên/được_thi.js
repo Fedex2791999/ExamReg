@@ -10,7 +10,7 @@ route.post('/',controller.Add_One);
 
 route.delete('/:id',controller.Delete);
 
-route.put('/:id/:tên_môn_học',controller.Update);
+route.put('/:id/:name',controller.Update);
 
 route.post('/upload/:name',controller.upload.single('file_name'),controller.Upload);
 

@@ -125,3 +125,15 @@ table{
 .sinh_vien_text:hover{
     text-decoration: none;
 }
+.logo_text:hover{
+    text-decoration: none;
+}
+.nt1{
+    margin-left: 20px;
+}
+.nt2{
+    margin-left: 20px;
+}
+th span{
+    font-weight: bold;
+}

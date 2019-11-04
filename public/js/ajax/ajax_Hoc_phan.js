@@ -11,7 +11,7 @@ $(document).ready(function(){
             Giảng_viên : giảng_viên,
             Ghi_chú : ghi_chú
         }
-
+        console.log(id);
         $.ajax({
             url: '/main/quan_ly_hoc_phan/' + id ,
             type: 'DELETE',
@@ -78,5 +78,9 @@ $(document).ready(function(){
         })
     })
 });
+// tree view
 
+$(document).ready(function() {
+    $('.treeview').mdbTreeview();
+  });
 

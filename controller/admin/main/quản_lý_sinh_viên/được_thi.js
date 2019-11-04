@@ -21,7 +21,7 @@ module.exports.Open = function(req,res){
 module.exports.Add_One = function(req,res){
     var mã_sinh_viên = req.body.mã_sinh_viên;
     var tên_môn_học = req.body.tên_môn_học;
-    banned_students.find({
+    success_students.find({
         id_student : mã_sinh_viên,
         name_subject : tên_môn_học
     },function(err,data){
@@ -30,7 +30,7 @@ module.exports.Add_One = function(req,res){
             console.log('mã sinh viên đã tồn tại!');
         }
         else{
-            model.collection('banned_students').insertOne({
+            model.collection('success_students').insertOne({
                 id_student : mã_sinh_viên,
                 name_subject : tên_môn_học,
             });
@@ -41,7 +41,7 @@ module.exports.Add_One = function(req,res){
 }
 
 module.exports.Delete = function(req,res){  
-    banned_students.findOne({
+    success_students.findOne({
         id_student : req.params.id
     }).remove(function(err,data){
         if(err) throw err;
@@ -55,10 +55,11 @@ module.exports.Delete = function(req,res){
 
 module.exports.Update = function(req,res){
     var mã_sinh_viên  = req.params.id;
-    var tên_môn_học = req.params.tên_môn_học;
+    var tên_môn_học = req.params.name;
     
     var filter = {id_student : mã_sinh_viên};
     var update = {
+        id_student: mã_sinh_viên,
         name_subject : tên_môn_học
     }
     model.collection('success_students').update(filter,update,function(err,data){

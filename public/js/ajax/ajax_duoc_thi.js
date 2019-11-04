@@ -9,7 +9,7 @@ $(document).ready(function(){
         }
 
         $.ajax({
-            url: '/main/quan_ly_sinh_vien/' + id ,
+            url: '/main/quan_ly_sinh_vien/duoc_thi/' + id ,
             type: 'DELETE',
             data : todo,
             success: function(data) {
@@ -30,7 +30,7 @@ $(document).ready(function(){
             }
             console.log('submit!' + new_tên_môn_học);
         $.ajax({
-            url : '/main/quan_ly_sinh_vien/' + id +'/'+ new_tên_môn_học,
+            url : '/main/quan_ly_sinh_vien/duoc_thi/' + id +'/'+ new_tên_môn_học,
             type : 'PUT',
             data : todo,
             success : function(){

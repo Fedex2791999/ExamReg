@@ -11,7 +11,7 @@
 
   <!-- Bootstrap core CSS -->
 
-  <!-- <link rel="stylesheet" href="../../../../MDB-Free_4.8.11/css/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="../../../../MDB-Free_4.8.11/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../../MDB-Free_4.8.11/css/mdb.css">
   <link href="../../../css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -45,7 +45,7 @@
     <div class="content">
       <div class="logo">
         <a href="http://localhost:3000/main" class="logo"><img src="" alt="#"></a>
-        <a href="http://localhost:3000/main" class="logo"><span class="name-school">ABCUni</span></a>
+        <a href="http://localhost:3000/main" class="logo_text"><span class="name-school">ABCUni</span></a>
         <span class="name-active">Hệ thống đăng kí dự thi trắc nghiệm</span>
       </div>
       <div class="btn-group">
@@ -68,12 +68,6 @@
       <nav class="col-md-2 d-none d-md-block bg-light sidebar">
         <div class="sidebar-sticky table-left">
           <ul class="nav flex-column">
-            <li class="nav-item">
-              <a class="nav-link active" href="http://localhost:3000/main/quan_ly_hoc_phan">
-                <i class="fas fa-book"></i>
-                Quản lý học phần <span class="sr-only">(current)</span>
-              </a>
-            </li>
             <li class="nav-item ">
               <div class="treeview">
                 <ul class="mb-1 pl-3 pb-2">
@@ -83,6 +77,12 @@
                       <li><a href="http://localhost:3000/main/quan_ly_sinh_vien/cam_thi" class="sinh_vien_text" style="color: black; margin-left: 10px;"><i class="fas fa-ban"></i> Sinh viên cấm thi</a></li>
                       <li><a href="http://localhost:3000/main/quan_ly_sinh_vien/duoc_thi" class="sinh_vien_text"><i class="fas fa-check-circle"></i> Sinh viên được thi</a></li>
               </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="http://localhost:3000/main/quan_ly_hoc_phan">
+                <i class="fas fa-book"></i>
+                Quản lý học phần <span class="sr-only">(current)</span>
+              </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="http://localhost:3000/main/quan_ly_ki_thi">
@@ -114,9 +114,9 @@
           <table class="table table-striped table-sm">
             <thead>
               <tr>
-                <th>Mã sinh viên</th>
-                <th>Tên môn thi bị cấm</th>
-                <th>Thao tác</th>
+                <th><span>Mã sinh viên</span></th>
+                <th><span>Tên môn thi bị cấm</span></th>
+                <th><span>Thao tác</span></th>
               </tr>
             </thead>
             <tbody>
@@ -154,7 +154,7 @@
               <div class="modal-body">
                   <form method="POST" id="add">
                       <label>Mã sinh viên : </label><input type="text" name="mã_sinh_viên" id="mã_sinh_viên" class="ip1"><br>
-                      <label>Tên môn thi bị cấm : </label><input type="text" name="tên"tên_môn_học id="tên_môn_học" class="ip2"><br>
+                      <label>Tên môn thi bị cấm : </label><input type="text" name="tên_môn_học" id="tên_môn_học" class="ip2"><br>
               </div>
 
               <!-- Modal footer -->
@@ -235,11 +235,11 @@
   </div>
 </div>
 <script src="../../../../js/jquery-3.4.1.min.js"></script>
-<script src="../../../../MDB-Free_4.8.11/js/bootstrap.min.jss"></script>
+<!-- <script src="../../../../MDB-Free_4.8.11/js/bootstrap.min.jss"></script> -->
 <!-- <script src="../../../../js/bootstrap.min.js"></script> -->
 <script src="../../../../MDB-Free_4.8.11/js/modules/treeview.js"></script>
-<script src="../../../../MDB-Free_4.8.11/js/popper.min.js"></script>
-<script src="../../../../MDB-Free_4.8.11/js/mdb.min.js"></script>
+<!-- <script src="../../../../MDB-Free_4.8.11/js/popper.min.js"></script> -->
+<!-- <script src="../../../../MDB-Free_4.8.11/js/mdb.min.js"></script> -->
 <!-- <script src="../../../../js/bootstrap.bundle.min.js"></script> -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
