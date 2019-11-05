@@ -20,10 +20,10 @@ module.exports.Open = function(req,res){
 
 module.exports.Add_One = function(req,res){
     var mã_sinh_viên = req.body.mã_sinh_viên;
-    var tên_môn_học = req.body.tên_môn_học;
+    var mã_môn_học = req.body.mã_môn_học;
     banned_students.find({
         id_student : mã_sinh_viên,
-        name_subject : tên_môn_học
+        id_subject : mã_môn_học
     },function(err,data){
         if(err) throw err;
         else if(data.length > 0){
@@ -32,7 +32,7 @@ module.exports.Add_One = function(req,res){
         else{
             model.collection('banned_students').insertOne({
                 id_student : mã_sinh_viên,
-                name_subject : tên_môn_học,
+                id_subject : mã_môn_học,
             });
             res.redirect('/main/quan_ly_sinh_vien/cam_thi');
         }
@@ -56,12 +56,12 @@ module.exports.Delete = function(req,res){
 module.exports.Update = function(req,res){
     console.log('heloo!!')
     var mã_sinh_viên  = req.params.id;
-    var tên_môn_học = req.params.name;
+    var mã_môn_học = req.params.name;
     
     var filter = {id_student : mã_sinh_viên};
     var update = {
         id_student : mã_sinh_viên,
-        name_subject : tên_môn_học
+        id_subject : mã_môn_học
     }
     console.log('den day chua?');
     model.collection('banned_students').update(filter,update,function(err,data){

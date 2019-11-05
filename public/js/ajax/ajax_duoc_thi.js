@@ -2,10 +2,10 @@ $(document).ready(function(){
     $('table').on('click', '#delete', function() {
         var rowEl = $(this).closest('tr');
         var id = rowEl.find('#mã_sinh_viên').text();
-        var tên_môn_học = rowEl.find('#tên_môn_học').text();
+        var mã_môn_học = rowEl.find('#mã_môn_học').text();
         var todo = {
             Mã_sinh_viên : id,
-            Tên_môn_học : tên_môn_học,
+            Mã_môn_học : mã_môn_học,
         }
 
         $.ajax({
@@ -23,14 +23,14 @@ $(document).ready(function(){
         var id = rowEl.find('#mã_sinh_viên').text();
         $('.modal_update').on('click','#sub_update',function(e){
             e.preventDefault();
-            var new_tên_môn_học = $('#tên_môn_học_update').val();
+            var new_mã_môn_học = $('#mã_môn_học_update').val();
             var todo = {
                 Mã_sinh_viên : id,
-                Tên_môn_học : new_tên_môn_học,
+                Mã_môn_học : new_mã_môn_học,
             }
-            console.log('submit!' + new_tên_môn_học);
+            console.log('submit!' + new_mã_môn_học);
         $.ajax({
-            url : '/main/quan_ly_sinh_vien/duoc_thi/' + id +'/'+ new_tên_môn_học,
+            url : '/main/quan_ly_sinh_vien/duoc_thi/' + id +'/'+ new_mã_môn_học,
             type : 'PUT',
             data : todo,
             success : function(){
