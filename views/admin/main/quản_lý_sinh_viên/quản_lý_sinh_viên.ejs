@@ -13,10 +13,8 @@
 
   <!-- <link rel="stylesheet" href="../../../../MDB-Free_4.8.11/css/bootstrap.min.css"> -->
   <link rel="stylesheet" href="../../../../MDB-Free_4.8.11/css/mdb.css">
-  <link href="../../../css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
@@ -32,6 +30,7 @@
         font-size: 3.5rem;
       }
     }
+  
   </style>
   <!-- Custom styles for this template -->
   <link rel="stylesheet" href="../../../../css/fontawesome-free-5.10.2-web/css/all.min.css">
@@ -41,12 +40,28 @@
 
 <body>
 
+  
   <div class="top">
     <div class="content">
       <div class="logo">
-        <a href="http://localhost:3000/main" class="logo"><img src="" alt="#"></a>
-        <a href="http://localhost:3000/main" class="logo"><span class="name-school">ABCUni</span></a>
-        <span class="name-active">Hệ thống đăng kí dự thi trắc nghiệm</span>
+          <div class="display_inline icon_main">
+              <a href="http://localhost:3000/main">
+                <img
+                  src="https://sdwhalewatch.com/wp-content/uploads/2016/03/icon-education.png"
+                  alt="#"
+                  width="50px"
+                  height="50px"
+                />
+              </a>
+            </div>
+            <div class="display_inline">
+                <a href="http://localhost:3000/main">
+                  <span class="name-school">ABCUni</span>
+                </a>
+              </div>
+              <div class="display_inline">
+                  <span class="name-active" >Hệ thống đăng kí dự thi trắc nghiệm</span>
+                </div>
       </div>
       <div class="btn-group">
         <button type="button" class="btn btn-primary dropdown-toggle btn-custom" data-toggle="dropdown"
@@ -72,7 +87,7 @@
               <div class="treeview">
                 <ul class="mb-1 pl-3 pb-2">
                   <li style="color: black; margin-left: 10px;"><i class="fas fa-angle-right rotate"></i>
-                    <span><a href="http://localhost:3000/main/quan_ly_sinh_vien" class="sinh_vien_text" style="color: black; margin-left: 10px;"><i class="fas fa-user-graduate"></i>Quản lý sinh viên</a></span>
+                    <span><a href="http://localhost:3000/main/quan_ly_sinh_vien" class="sinh_vien_text" style="color: black; margin-left: 10px;"><i class="fas fa-user-graduate"></i> Quản lý sinh viên</a></span>
                     <ul class="nested">
                       <li><a href="http://localhost:3000/main/quan_ly_sinh_vien/cam_thi" class="sinh_vien_text"><i class="fas fa-ban"></i> Sinh viên cấm thi</a></li>
                       <li><a href="http://localhost:3000/main/quan_ly_sinh_vien/duoc_thi" class="sinh_vien_text"><i class="fas fa-check-circle"></i> Sinh viên được thi</a></li>
@@ -150,18 +165,33 @@
 
               <!-- Modal Header -->
               <div class="modal-header">
-                  <h4 class="modal-title" style="color: #014880;font-weight:700;font-size: 30px">Thêm Thông Tin
+                  <h4 class="modal-title" style="color: #006EB6;font-weight:700;font-size: 30px">Thêm Thông Tin
                       Sinh Viên</h4>
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
               </div>
 
               <!-- Modal body -->
-              <div class="modal-body">
-                  <form method="POST" id="add">
-                      <label>Mã sinh viên : </label><input type="text" name="mã_sinh_viên" id="mã_sinh_viên" class="ip1"><br>
-                      <label>Họ và tên : </label><input type="text" name="họ_và_tên" id="họ_và_tên" class="ip2"><br>
-                      <label>Năm sinh : </label><input type="text" name="năm_sinh" id="năm_sinh" class="ip3"><br>
-                      <label>Lớp : </label><input type="text" name="lớp" id="lớp" class="ip5"><br>                       
+              <div class="modal-body">     
+                    <table >
+                      <tbody>
+                        <tr>
+                          <td> <label id="icon" for="name"><i class="fas fa-id-card "></i>  Mã sinh viên:</label></td>
+                          <td><input type="text" name="mã_sinh_viên" id="mã_sinh_viên" class="ip1"></td>
+                        </tr>
+                        <tr>
+                            <td><label id="icon" for="name"><i class="fas fa-user "></i>  Họ và tên: </label></td>
+                            <td><input type="text" name="họ_và_tên" id="họ_và_tên" class="ip2"></td>
+                          </tr>
+                          <tr>
+                              <td><label id="icon" for="name"><i class="fa fa-calendar "></i>  Năm sinh:</label></td>
+                              <td><input type="text" name="năm_sinh" id="năm_sinh" class="ip3"></td>
+                            </tr>
+                            <tr>
+                                <td><label id="icon" for="name"><i class="fas fa-school"></i>  Lớp:</label></td>
+                                <td><input type="text" name="lớp" id="lớp" class="ip5"></td>
+                              </tr>
+                      </tbody>
+                    </table>                
               </div>
 
               <!-- Modal footer -->

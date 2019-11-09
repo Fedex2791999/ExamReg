@@ -6,7 +6,8 @@
 .top{
     height: 70px;
     width: auto;
-    background-image: linear-gradient(135deg,#fff,dodgerblue);
+    background-image: linear-gradient(160deg,#fff,#3464B0,#fff);  
+      border-bottom: 1px solid rgba(0,0,0,.1);
 }
 .btn-group{
     position: absolute;
@@ -16,15 +17,16 @@
 .name-school{
     font-size: 40px;
     font-weight: 700;
-    color: dodgerblue;
+    color: #3464B0;
 }
 .table-left{
-    background-image: linear-gradient(135deg,#fff,dodgerblue);
-    height: 684px;
+    background-image: linear-gradient(105deg,#fff,#3464B0);
+        height: 684px;
 }
 
 .nav-link{
-    font-weight: 500;
+        font-weight: 500;
+        font-size: 16px;
 }
 .btn_active{
     position: absolute;
@@ -36,14 +38,14 @@
     margin-left: 5px;
 }
 .modal-content{
-    height: 600px;
-    width: 800px;
+    height: 440px;
+    width: 675px;
 }
 .modal-body label{
     margin-top: 10px;
-    margin-left:100px;
+    margin-left:70px;
     font-size: 25px;
-    color: #014880;
+    color: #006EB6;
     font-weight: 700;
 }
 .body_update label{
@@ -54,10 +56,9 @@
     font-weight: 700;
 }
 .modal-body input{
-    margin-left: 20px;
-    border: solid 2px #006EB6;
-    border-radius: 15px;
     padding: 5px 40px;
+    height: 30px;
+    border: solid 2px #cbc9c9;
 }
 .body_update input{
     margin-left: 20px;
@@ -66,7 +67,7 @@
     padding: 5px 40px;
 }
 .modal-body .ip1 {
-    margin-left: 50px;
+    margin-left: 58px;
 }
 .modal-body .ip2 {
     margin-left: 58px;
@@ -78,11 +79,12 @@
     margin-left: 110px;
 }
 .modal-body .ip5{
-    margin-left: 60px;
+    margin-left: 60px; 
 }
 .modal-body{
-    background-image: linear-gradient(180deg,#fff,#1D92FA,#fff);
-
+    /* background-image :linear-gradient(90deg,#fff ,dodgerblue 60%,#fff  ); */
+    border-top: 1px solid #939ca5;
+    border-bottom: 1px solid #939ca5;
 }
 .btn_list{
     padding: 3px 15px;
@@ -110,6 +112,7 @@
     border: solid 2px #fff;
     border-radius: 15px;
     padding: 5px 40px;
+    height: 45px;
 }
 .content_excel{
     width: 500px;
@@ -137,3 +140,48 @@ table{
 th span{
     font-weight: bold;
 }
+
+
+.modal-dialog .modal-content{
+    border-radius: 30px;
+    border: solid 1px #cbc9c9;
+    background-color: #ebebeb;
+}
+a{
+    color:#3464B0
+}
+
+.display_inline{
+    display: inline;
+  }
+  .icon_main {
+    position: relative;
+    bottom: 8px;
+  }
+  .name-active{
+   font-weight: 500;
+  }
+  .container-fluid{
+      padding-left: 0px;
+  }
+  .treeview{
+      margin-top: 20px;
+      font-size: 17px;
+  }
+  .btn-primary.dropdown-toggle{
+    background-color: #3464B0 !important;
+  }
+  .nav-item{
+    border-bottom: 1px solid rgba(0,0,0,.1);
+  }
+
+  .bg-light{
+    background-image: linear-gradient(105deg,#fff,#3464B0);
+  }
+  .btn-primary{
+    background-color: #3464B0 !important;
+  }
+  .btn-success{
+    background-color:#0f793a !important;
+  }    
+  

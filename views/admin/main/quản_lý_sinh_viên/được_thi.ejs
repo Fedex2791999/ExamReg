@@ -13,8 +13,7 @@
 
   <!-- <link rel="stylesheet" href="../../../../MDB-Free_4.8.11/css/bootstrap.min.css"> -->
   <link rel="stylesheet" href="../../../../MDB-Free_4.8.11/css/mdb.css">
-  <link href="../../../css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 
   <style>
@@ -43,11 +42,26 @@
 
   <div class="top">
     <div class="content">
-      <div class="logo">
-        <a href="http://localhost:3000/main" class="logo"><img src="" alt="#"></a>
-        <a href="http://localhost:3000/main" class="logo"><span class="name-school">ABCUni</span></a>
-        <span class="name-active">Hệ thống đăng kí dự thi trắc nghiệm</span>
-      </div>
+        <div class="logo">
+            <div class="display_inline icon_main">
+                <a href="http://localhost:3000/main">
+                  <img
+                    src="https://sdwhalewatch.com/wp-content/uploads/2016/03/icon-education.png"
+                    alt="#"
+                    width="50px"
+                    height="50px"
+                  />
+                </a>
+              </div>
+              <div class="display_inline">
+                  <a href="http://localhost:3000/main">
+                    <span class="name-school">ABCUni</span>
+                  </a>
+                </div>
+                <div class="display_inline">
+                    <span class="name-active" >Hệ thống đăng kí dự thi trắc nghiệm</span>
+                  </div>
+        </div>
       <div class="btn-group">
         <button type="button" class="btn btn-primary dropdown-toggle btn-custom" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
@@ -153,14 +167,26 @@
                 <!-- Modal body -->
                 <div class="modal-body">
                     <form method="POST" id="add">
-                        <label>Mã sinh viên : </label><input type="text" name="mã_sinh_viên" id="mã_sinh_viên" class="ip1"><br>
-                        <label>Mã môn được dự thi  : </label><input type="text" name="mã_môn_học" id="mã_môn_học" class="ip2"><br>
+                      <table >
+                        <tbody>
+                          <tr>
+                            <td> <label id="icon" for="name"><i class="fas fa-ad "></i>  Mã sinh viên:</label></td>
+                            <td><input type="text" name="mã_sinh_viên" id="mã_sinh_viên" class="ip1"></td>
+                          </tr>
+                          <tr>
+                              <td><label id="icon" for="name"><i class="fas fa-book-reader"></i>  Mã môn thi: </label></td>
+                              <td><input type="text" name="họ_và_tên" id="họ_và_tên" class="ip2"></td>
+                            </tr>
+                   
+                        </tbody>
+                      </table>    
+                      </form>
                 </div>
   
                 <!-- Modal footer -->
                 <div class="modal-footer">
                     <input type="submit" name="acept" class="btn btn-primary"  value="Xác nhận">
-                </form>
+           
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
                 </div>
   
